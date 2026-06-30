@@ -274,3 +274,144 @@ img{
 .loading-page p{
     color: var(--text-soft);
 }
+
+.planner{
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar{
+    width: 420px;
+    min-width: 420px;
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-head{
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.sidebar-head h2{
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.sidebar-head p{
+    color: var(--text-soft);
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.back-btn{
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    background: none;
+    padding: 4px 0;
+}
+
+.back-btn:hover{
+    color: var(--text);
+}
+
+/* day tab */
+.day-tabs{
+    display: flex;
+    gap: 4px;
+    padding: 12px 24px;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--border);
+}
+
+.day-tab{
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: var(--bg);
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.day-tab:hover{
+    color: var(--text);
+}
+
+.day-tab.active{
+    background: var(--clr);
+    color: white;
+}
+
+/* day content */
+.day-content{
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 24px;
+}
+
+.slot-block{
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-soft);
+    margin-bottom: 10px;
+}
+
+/* activity-card */
+.activity-card{
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
+.activity-card:hover{
+    box-shadow: var(--shadow);
+}
+
+.act-dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+.act-body h5{
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.act-desc{
+    font-size: 0.82rem;
+    color: var(--text-soft);
+    margin-top: 2px;
+}
+
+.act-meta{
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: var(--text-soft);
+}
+
+.act-cost{
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* map area */
+.map-area{
+    flex: 1;
+    height: 100vh;
+}

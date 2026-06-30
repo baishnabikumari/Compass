@@ -1,8 +1,13 @@
 import './style.css'
 import { renderForm } from './form.js'
 import { genItinerary } from './gemini.js'
+import { renderItinerary } from './itinerary.js'
 
 const app = document.getElementById('app')
+
+let lastTrip = null
+let lastPlan = null
+
 function init(){
     renderForm(app, handleSubmit)
 }
@@ -16,7 +21,9 @@ async function handleSubmit(trip) {
     `
     try{
         const plan = await genItinerary(trip)
-        console.log('itinerary:', plan)
+        lastTrip = trip
+        lastPlan = plan
+        showItinerary()
     } catch (err){
         console.error('gemini failed:', err)
         app.innerHTML = `
@@ -24,8 +31,15 @@ async function handleSubmit(trip) {
                 <h2>something went wrong</h2>
                 <p>${err.message}</p>
                 <button class="btn-go" onclick="location.reload()">try again</button>
+            </div>
         `
     }
+}
+
+function showItinerary(){
+    renderItinerary(app, lastPlan, lastTrip, () => {
+        init()
+    })
 }
 
 init()
