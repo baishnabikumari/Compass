@@ -1,12 +1,11 @@
 import './style.css'
+import { renderForm } from './form.js'
 
 const app = document.getElementById('app')
 function init(){
-    app.innerHTML = `
-        <div class="loading">
-            <h1>Compass</h1>
-            <p>Plan your trip, not your stress</p>
-        </div>
-    `
+    renderForm(app, handleSubmit)
+}
+function handleSubmit(trip){
+    console.log('trip data:', trip)
 }
 init()
