@@ -255,3 +255,22 @@ img{
     opacity: 0.4;
     cursor: not-allowed;
 }
+
+.loading-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    gap: 8px;
+}
+
+.loading-page h2{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.loading-page p{
+    color: var(--text-soft);
+}
