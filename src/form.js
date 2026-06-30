@@ -153,7 +153,7 @@ function wire(onSubmit){
 }
 async function searchPlaces(q, list, input){
     try {
-        const url = 'https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=5'
+        const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=5`
         const res = await fetch(url, {
             headers: {'Accept-Language': 'en'}
         })
