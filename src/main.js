@@ -2,6 +2,7 @@ import './style.css'
 import { renderForm } from './form.js'
 import { genItinerary } from './gemini.js'
 import { renderItinerary } from './itinerary.js'
+import { initMap, destroyMap } from './map.js'
 
 const app = document.getElementById('app')
 
@@ -9,6 +10,7 @@ let lastTrip = null
 let lastPlan = null
 
 function init(){
+    destroyMap()
     renderForm(app, handleSubmit)
 }
 
@@ -37,9 +39,8 @@ async function handleSubmit(trip) {
 }
 
 function showItinerary(){
-    renderItinerary(app, lastPlan, lastTrip, () => {
-        init()
-    })
+    renderItinerary(app, lastPlan, lastTrip, () =>  init())
+    setTimeout(() => initMap('map-area', lastPlan, 0), 50)
 }
 
 init()
