@@ -111,7 +111,12 @@ function showLoader(trip){
     const el = document.getElementById('loader-line')
     if(el) el.textContent = lines[0]
     statusTimer = setInterval(() => {
-        i = (i + 1) % lines.length
+        if(i >= lines.length - 1){
+            clearInterval(statusTimer)
+            statusTimer = null
+            return
+        }
+        i += 1
         const line = document.getElementById('loader-line')
         if(!line) return
         line.style.opacity = 0
