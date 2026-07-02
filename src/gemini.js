@@ -15,6 +15,8 @@ For Each day, give exactly 3 activities (morning, afternoon, evening).
 Keep description very sort.Cost in USD
 
 Respond ONLY with valid JSON, no markdown, no explanation. Use this exact structure:
+
+keep the total response under 4000 characters only.
 {
     "days":[
         {

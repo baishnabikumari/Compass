@@ -3,6 +3,8 @@ import { renderForm } from './form.js'
 import { genItinerary } from './gemini.js'
 import { renderItinerary } from './itinerary.js'
 import { initMap, destroyMap } from './map.js'
+import { getWeather } from './weather.js'
+import { setWeather } from './itinerary.js'
 
 const app = document.getElementById('app')
 
@@ -23,6 +25,9 @@ async function handleSubmit(trip) {
     `
     try{
         const plan = await genItinerary(trip)
+        getWeather(trip.dest.lat, trip.dest.lng).then(w => {
+            if(w) setWeather(w)
+        })
         lastTrip = trip
         lastPlan = plan
         showItinerary()

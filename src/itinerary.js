@@ -1,4 +1,11 @@
 import { DAY_COLORS, SLOTS } from "./constants.js";
+import { weatherForDay } from "./weather.js";
+
+let weatherData = null
+export function setWeather(data){
+    weatherData = data
+}
+
 export function renderItinerary(container, plan, trip, onBack){
     const { days } = plan
 
@@ -20,18 +27,27 @@ export function renderItinerary(container, plan, trip, onBack){
                 </div>
                 
                 <div class="day-content" id="day-content">
-                    ${renderDay(days[0], 0)}
+                    ${renderDay(days[0], 0, trip.startDate)}
                 </div>
             </aside>
             
             <div class="map-area" id="map-area"></div>
         </div>
     `
-    wireItinerary(days, onBack)
+    wireItinerary(days, onBack, trip)
 }
 
-function renderDay(day, idx){
+function renderDay(day, idx, tripStart){
     const clr = DAY_COLORS[idx % DAY_COLORS.length]
+    const w = weatherForDay(weatherData, tripStart, idx)
+
+    const weatherHtml = w ? `
+        <div class="weather-strip">
+            <img src="https://openweathermap.org/img/wn/${w.icon}.png" alt="${w.desc}" class="weather-icon" />
+            <span class="weather-temp">${w.high}° / ${w.low}°</span>
+            <span class="weather-desc">${w.desc}</span>
+        </div>
+    ` : ''
 
     const grouped = {}
     SLOTS.forEach(s => grouped[s] = [])
@@ -39,7 +55,7 @@ function renderDay(day, idx){
         const slot = grouped[a.slot] ? a.slot : 'morning'
         grouped[slot].push(a)
     })
-    return SLOTS.map(slot => {
+    return weatherHtml + SLOTS.map(slot => {
         const acts = grouped[slot]
         if(!acts.length) return ''
 
@@ -64,7 +80,7 @@ function renderDay(day, idx){
     }).join('')
 }
 
-function wireItinerary(days, onBack){
+function wireItinerary(days, onBack, trip){
     const tabs = document.getElementById('day-tabs')
     const content = document.getElementById('day-content')
     const backBtn = document.getElementById('back-btn')
@@ -78,7 +94,7 @@ function wireItinerary(days, onBack){
 
         tabs.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'))
         tab.classList.add('active')
-        content.innerHTML = renderDay(days[idx], idx)
+        content.innerHTML = renderDay(days[idx], idx, trip.startDate)
         window.dispatchEvent(new CustomEvent('daychange', { detail: { idx } }))
     })
     backBtn.addEventListener('click', () => onBack())
