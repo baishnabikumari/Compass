@@ -1,9 +1,11 @@
 # Compass
+
 A trip itinerary builder that build a trip plan day by day which is powered by Gemini - travel the way you want.
 
 
 
 ## Key Features
+
 - **Gemini** - day by day plan build with the gemini 2.5 flash model.
 - **Smart destination search** - real-time autocomplete using openstreetmap nominatim.
 - **Map** - Using the leaflet.js with day colored pins and the routes b/w stops.
@@ -13,7 +15,8 @@ A trip itinerary builder that build a trip plan day by day which is powered by G
 
 
 
-## Tech behind
+## Tech behind This 
+
 - **Venilla HTML / CSS and JS**
 - **Vite**
 - **Leaflet.js**
@@ -21,7 +24,27 @@ A trip itinerary builder that build a trip plan day by day which is powered by G
 - **OpenWeatherMap API key**
 - **Nominatim**
 
-## Credits
+## How to Use This Shit
+
+```bash
+# Clone this repository
+$ git clone https://github.com/baishnabikumari/Compass
+
+# Go into the repository
+$ cd Compass
+
+# Install dependencies
+$ npm install
+
+# Add your API keys to .env
+$ echo "VITE_GEMINI_KEY=your_gemini_key" >> .env
+$ echo "VITE_WEATHER_KEY=your_openweathermap_key" >> .env
+
+# Run the app
+$ npm run dev
+```
+
+## Credits To
 
 This project uses:
 
