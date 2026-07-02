@@ -40,12 +40,12 @@ export async function getWeather(lat, lng) {
 function mostCommon(arr) {
     const freq = {}
     arr.forEach(v => freq[v] = (freq[v] || 0) + 1)
-    return Object.keys(freq).sort((a, b) => freq[b] - freq[a][0])
+    return Object.keys(freq).sort((a, b) => freq[b] - freq[a])[0]
 }
 export function weatherForDay(weatherData, tripStart, dayIdx) {
     if (!weatherData) return null
     const start = new Date(tripStart)
-    start.setDate(start.getData() + dayIdx)
+    start.setDate(start.getDate() + dayIdx)
     const target = start.toISOString().split('T')[0]
     return weatherData.find(w => w.date === target) || null
 }
