@@ -25,7 +25,7 @@ A trip itinerary builder that build a trip plan day by day which is powered by G
 - **Nominatim**
 
 ## visit
-[Compass - Tavel the way you want](compass-delta-three.vercel.app)
+[Compass - Tavel the way you want](https://compass-delta-three.vercel.app/)
 
 ## How to Use This Shit
 
