@@ -445,3 +445,114 @@ img{
     font-size: 0.8rem;
     text-transform: capitalize;
 }
+
+.sk-tab{
+    width: 52px;
+    height: 26px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #EEE 25%, #F5F5F5 50%, #EEE 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+}
+
+.sk-slot{
+    margin-bottom: 20px;
+}
+
+.sk-label{
+    width: 70px;
+    height: 10px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #EEE 25%, #F5F5F5 50%, #EEE 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    margin-bottom: 12px;
+}
+
+.sk-card{
+    height: 76px;
+    border-radius: var(--radius);
+    background: linear-gradient(90deg, #F0F0F0 25%, #F7F7F7 50%, #F0F0F0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    margin-bottom: 8px;
+}
+
+.sk-weather{
+    height: 48px;
+    border-radius: var(--radius);
+    background: linear-gradient(90deg, #F0F0F0 25%, #F7F7F7 50%, #F0F0F0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes shimmer{
+    0% {background-position: 200% 0;}
+    100% { background-position: -200% 0;}
+}
+
+/* status text */
+.loader-status{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 500;
+    pointer-events: none;
+}
+
+.loader-line{
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    box-shadow: var(--shadow-md);
+    transition: opacity 0.2s;
+}
+
+/* pulsing pin */
+.pulse-pin{
+    position: relative;
+}
+
+.pulse-dot{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
+    border: 2px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.pulse-ring{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+    animation: pulse 1.8s ease-out infinite;
+}
+
+@keyframes pulse{
+    0% {transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;}
+    100%{transform: translate(-50%, -50%) scale(4);
+    opacity: 0;}
+}
+
+.map-area{
+    position: relative;
+}
