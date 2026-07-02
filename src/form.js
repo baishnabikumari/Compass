@@ -14,32 +14,32 @@ export function renderForm(container, onSubmit){
     container.innerHTML = `
         <div class="form-page">
             <header class="form-header">
-                <h1>Compass</h1>
+                <h1>Compass - Travel the way you want.</h1>
                 <p>where to next?</p>
             </header>
             
             <form id="trip-form" class="trip-form">
                 <div class="field">
-                    <label for="dest">destination</label>
+                    <label for="dest">Destination</label>
                     <div class="search-wrap">
-                        <input type="text" id="dest" placeholder="try tokyo, paris, bali, india..." autocomplete="off" />
+                        <input type="text" id="dest" placeholder="Try tokyo, paris, bali, mumbai..." autocomplete="off" />
                         <ul id="suggestions" class="suggestions"></ul>
                     </div>
                 </div>
                 
                 <div class="field-row">
                     <div class="field">
-                        <label for="start">from</label>
+                        <label for="start">From</label>
                         <input type="date" id="start" />
                     </div>
                     <div class="field">
-                        <label for="end">to</label>
+                        <label for="end">To</label>
                         <input type="date" id="end" />
                     </div>
                 </div>
                 
                 <div class="field">
-                    <label>budget</label>
+                    <label>Budget</label>
                     <div class="pill-group" id="budget-pills">
                         ${BUDGETS.map(b => `
                             <button type="button" class="pill ${b === picked.budget ? 'active' : ''}" data-val="${b}">${b}</button>
@@ -48,7 +48,7 @@ export function renderForm(container, onSubmit){
                 </div>
                 
                 <div class="field">
-                    <label>interests</label>
+                    <label>Interests</label>
                     <div class="chip-group" id="interest-chips">
                         ${INTERESTS.map(i => `
                             <button type="button" class="chip" data-val="${i}">${i}</button>
@@ -57,7 +57,7 @@ export function renderForm(container, onSubmit){
                 </div>
                 
                 <div class="field">
-                    <label>travel style</label>
+                    <label>Travel Style</label>
                     <div class="pill-group" id="style-pills">
                         ${STYLES.map(s => `
                             <button type="button" class="pill ${s === picked.style ? 'active' : ''}" data-val="${s}">${s}</button>
@@ -66,7 +66,7 @@ export function renderForm(container, onSubmit){
                 </div>
                 
                 <div class="field">
-                    <label for="area">staying near <span class="optional">(optional)</span></label>
+                    <label for="area">Staying Near <span class="optional">(optional)</span></label>
                     <input type="text" id="area" placeholder="shinjuku, downtown, old town..." />
                 </div>
                 
